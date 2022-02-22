@@ -1,10 +1,15 @@
 {
+  "scripts": {
+    "dev": "ts-node-dev --exit-child --transpile-only --ignore-watch node_modules src/server.ts"
+  },
   "devDependencies": {
     "@prisma/client": "^3.10.0",
     "@types/bcrypt": "^5.0.0",
     "@types/express": "^4.17.13",
     "@types/jsonwebtoken": "^8.5.8",
+    "@types/node": "^17.0.19",
     "bcrypt": "^5.0.1",
+    "express": "^4.17.3",
     "jsonwebtoken": "^8.5.1",
     "prisma": "^3.10.0",
     "ts-node-dev": "^1.1.8",
