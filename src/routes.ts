@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { CreateDeveloperController } from "./modules/developers/createDeveloper/createDeveloperController";
-import { CreateLevelController } from "./modules/levels/createLevel/createlevelController";
+import { CreateLevelController } from "./modules/levels/createLevel/createLevelController";
 import { DeleteLevelController } from "./modules/levels/deleteLevel/deleteLevelController";
 import { UpdateLevelController } from "./modules/levels/updateLevel/updateLevelController"
 import { ListLevelController } from "./modules/levels/listLevel/listLevelController"
