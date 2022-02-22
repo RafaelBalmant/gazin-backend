@@ -37,7 +37,7 @@ const getLevelController = new GetLevelController()
 routes.post("/level/", createLevelController.handle)
 routes.delete("/level/", deleteLevelController.handle)
 routes.put("/level/", updateLevelController.handle)
-routes.get("/levels/", listLevelController.handle)
+routes.get("/level/", listLevelController.handle)
 routes.get("/level/:id", getLevelController.handle)
 
 
