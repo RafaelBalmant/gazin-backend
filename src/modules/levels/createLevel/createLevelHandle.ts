@@ -1,31 +1,16 @@
-import { randomUUID } from "crypto"
-import { prisma } from "../../../database/prismaClient"
-import { handleErrorMessages } from "../../../helpers/handleErrorMessages"
-
-
+import { prisma } from "../../../database/prismaClient";
 
 interface ILevelCreateHandle {
-  level: string,
+  level: string;
 }
 
 export class CreateLevelHandle {
-  async execute({
-    level,
-  }: ILevelCreateHandle){
-    try {
-      const newLevel = await prisma.levels.create({
-        data: {
-          id: randomUUID(), 
-          level: level
-        }
-      })
-      return newLevel;
-    }
-    catch (err: any) {
-      return {
-        message: handleErrorMessages[err.message]?.message || err.meta.cause || "internal server error",
-        code:  handleErrorMessages[err.message]?.code || 500
-      }
-    }
+  async execute({ level }: ILevelCreateHandle) {
+    const newLevel = await prisma.levels.create({
+      data: {
+        level: level,
+      },
+    });
+    return newLevel;
   }
 }

@@ -1,17 +1,12 @@
-import { hash } from "bcrypt"
-import { randomUUID } from "crypto"
-import { prisma } from "../../../database/prismaClient"
-import { handleErrorMessages } from "../../../helpers/handleErrorMessages"
-
-
+import { prisma } from "../../../database/prismaClient";
 
 interface iCreateDeveloperHandle {
-  name: string,
-  level: string,
-  gender: string,
-  date: Date,
-  age: number,
-  hobby: string
+  name: string;
+  level: string;
+  gender: string;
+  date: Date;
+  age: number;
+  hobby: string;
 }
 
 export class CreateDeveloperHandle {
@@ -21,38 +16,30 @@ export class CreateDeveloperHandle {
     gender,
     date,
     age,
-    hobby
-  }: iCreateDeveloperHandle){
-    try {
-      const currentLevel = await prisma.levels.findFirst({
-        where: {
-          level: {
-            equals: level
-          }
-        }
-      })
-      if(!currentLevel) {
-        throw new Error("Level not found")
-      }
-      const newDate = new Date(date)
-      const newDeveloper = await prisma.developers.create({
-        data: {
-          id: randomUUID(),
-          name,
-          id_level: currentLevel.id,
-          gender,
-          date: newDate.toISOString(),
-          age,
-          hobby,
-        }
-      })
-      return newDeveloper;
+    hobby,
+  }: iCreateDeveloperHandle) {
+    const currentLevel = await prisma.levels.findFirst({
+      where: {
+        level: {
+          equals: level,
+        },
+      },
+    });
+    if (!currentLevel) {
+      return throw new Error("Level not found");
     }
-    catch (err: any) {
-      return {
-        message: handleErrorMessages[err.message]?.message || err.meta.cause || "internal server error",
-        code:  handleErrorMessages[err.message]?.code || 500
-      }
-    }
+    const newDate = new Date(date);
+    const newDeveloper = await prisma.developers.create({
+      data: {
+        name,
+        id_level: currentLevel.id,
+        name_level: currentLevel.level,
+        gender,
+        date: newDate.toISOString(),
+        age,
+        hobby,
+      },
+    });
+    return newDeveloper;
   }
 }

@@ -1,33 +1,22 @@
-import { prisma } from "../../../database/prismaClient"
-import { handleErrorMessages } from "../../../helpers/handleErrorMessages"
+import { prisma } from "../../../database/prismaClient";
 
 interface IGetDeveloperHandle {
-  id: string,
+  id: number;
 }
 
-
 export class GetDeveloperHandle {
-  async execute({ id }: IGetDeveloperHandle){
-    try {
-      const developer = await prisma.developers.findUnique({
-        where: {
-          id
-        }
-      })
-      if(!developer) {
-        throw new Error("Level not found")
-      }
-      return {
-        code: 200,
-        data: developer
-      };
+  async execute({ id }: IGetDeveloperHandle) {
+    const developer = await prisma.developers.findUnique({
+      where: {
+        id,
+      },
+    });
+    if (!developer) {
+      throw new Error("Level not found");
     }
-    catch (err: any) {
-      console.log(err)
-      return {
-        message: handleErrorMessages[err.message]?.message || err.meta.cause || "internal server error",
-        code:  handleErrorMessages[err.message]?.code || 500
-      }
-    }
+    return {
+      code: 200,
+      data: developer,
+    };
   }
 }

@@ -11,18 +11,21 @@ datasource db {
 }
 
 model Levels {
-  id         String       @id @default(uuid())
+  id         Int          @id @default(autoincrement())
   level      String
   Developers Developers[]
+
+  @@unique([id, level], name: "id_levelname_level")
 }
 
 model Developers {
-  id       String   @id @default(uuid())
-  id_level String
-  level    Levels   @relation(fields: [id_level], references: [id], onDelete: Cascade) 
-  name     String
-  gender   String
-  date     DateTime
-  age      Int
-  hobby    String
+  id         Int      @id @default(autoincrement())
+  id_level   Int
+  name_level String
+  level      Levels   @relation(fields: [id_level, name_level], references: [id, level], onDelete: Cascade)
+  name       String
+  gender     String
+  date       DateTime
+  age        Int
+  hobby      String
 }
