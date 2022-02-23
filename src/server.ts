@@ -1,8 +1,8 @@
+import "express-async-errors";
 import express, { NextFunction } from "express";
 import { routes } from "./routes";
 import { Request, Response } from "express";
 import { handleErrorMessages } from "./helpers/handleErrorMessages";
-import "express-async-errors";
 
 var cors = require("cors");
 const app = express();

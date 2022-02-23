@@ -26,7 +26,7 @@ export class CreateDeveloperHandle {
       },
     });
     if (!currentLevel) {
-      return throw new Error("Level not found");
+      throw new Error("Level not found");
     }
     const newDate = new Date(date);
     const newDeveloper = await prisma.developers.create({
