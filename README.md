@@ -27,7 +27,7 @@ Depois rodar as migrate para que as tabelas possam ser criadas:
 
 yarn prisma migrate dev
 
-E o sistema estará pronto para uso! Qualquer dúvida estou à disposição nos contatos
+e depois é somente usar o yarn dev e o backend estará pronto para uso
 
 
 
