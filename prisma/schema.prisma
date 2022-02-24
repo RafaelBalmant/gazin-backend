@@ -12,7 +12,7 @@ datasource db {
 
 model Levels {
   id         Int          @id @default(autoincrement())
-  level      String
+  level      String       @unique
   Developers Developers[]
 
   @@unique([id, level], name: "id_levelname_level")
@@ -23,7 +23,7 @@ model Developers {
   id_level   Int
   name_level String
   level      Levels   @relation(fields: [id_level, name_level], references: [id, level], onDelete: Cascade)
-  name       String
+  name       String   @unique
   gender     String
   date       DateTime
   age        Int
