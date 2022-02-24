@@ -17,7 +17,7 @@ Você deve ter o docker instalado e o docker compose também para rodar o banco 
 
 Para rodar o backend você deve instalar as deps usando npm install ou yarn e depois configurar a URL do DATABASE_URL no .env nesse padrão
 
-postgres://[username]:[password]@localhost:[port]/postgres
+postgres://postgres:123456@localhost:5432/postgres
 
 depois de criar o .env você deve rodar o comando 
 
