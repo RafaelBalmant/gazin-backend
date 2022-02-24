@@ -7,6 +7,17 @@ interface IUpdateLevelHandle {
 
 export class UpdateLevelHandle {
   async execute({ id, level }: IUpdateLevelHandle) {
+    const currentLevel = await prisma.levels.findFirst({
+      where: {
+        level: {
+          equals: level,
+        },
+      },
+    });
+
+    if (currentLevel) {
+      throw new Error("Level exist");
+    }
     const updatedLevel = await prisma.levels.update({
       where: {
         id: id,
