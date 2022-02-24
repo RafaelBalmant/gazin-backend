@@ -13,14 +13,17 @@ No backend usei NODEJS com Typescript, também usei o ORM prisma!
 
 #### Como roda o backend
 
-Primeiramente devemos instalar o executar o banco de dados, para isso você deve ter o docker instalado em sua maquina e executar o seguinte comando
- - docker up -d
+Primeiramente devemos executar o banco de dados, para isso você deve ter o docker e docker compose instalado em sua maquina e executar o seguinte comando
+ - docker-compose up -d
 
-Depois disso devemos instalar as dependencias do backend executando os seguintes comandos 
+Depois disso devemos instalar as dependencias do backend executando o seguinte comando: 
  - yarn
 
 Depois devemos executar as configurações do prisma, primeiramente vamos criar o arquivo .env com essa const:
  - DATABASE_URL="postgres://postgres:123456@localhost:5432/postgres"
+
+Depois devemos instalar o client do prisma:
+ - yarn add @prisma/client prisma -G
 
 Depois devemos rodar o comando para o prisma identificar essa variavel: 
  - npx prisma generate
