@@ -11,7 +11,7 @@ Queria agradecer também a oportunidade, nunca tinha participado de um desafio c
 
 No backend usei NODEJS com Typescript, também usei o ORM prisma!
 
-#### Como roda o backend
+#### Executando o backend
 
 Primeiramente devemos executar o banco de dados, para isso você deve ter o docker e docker compose instalado em sua maquina e executar o seguinte comando
  - docker-compose up -d
