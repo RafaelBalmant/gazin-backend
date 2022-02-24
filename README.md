@@ -13,7 +13,7 @@ No backend usei NODEJS com Typescript, também usei o ORM prisma!
 
 #### Como roda o backend
 
-Você deve ter o docker instalado e o docker compose também para rodar o banco de dados, depois é somente rodar o comando docker-compose -d 
+Você deve ter o docker instalado e o docker compose também para rodar o banco de dados, depois é somente rodar o comando docker-compose up -d 
 
 Para rodar o backend você deve instalar as deps usando npm install ou yarn e depois configurar a URL do DATABASE_URL no .env nesse padrão
 
