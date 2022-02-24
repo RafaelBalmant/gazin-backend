@@ -4,7 +4,6 @@ import { DeleteDeveloperHandle } from "./deleteDeveloperHandle";
 export class DeleteDeveloperController {
   async handle(request: Request, response: Response) {
     const { id } = request.body;
-    console.log("this is id", id);
     const deleteDeveloperHandle = new DeleteDeveloperHandle();
     const result = await deleteDeveloperHandle.execute({
       id,

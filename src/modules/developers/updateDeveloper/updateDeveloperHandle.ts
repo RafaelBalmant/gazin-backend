@@ -40,6 +40,7 @@ export class UpdateDeveloperHandle {
       data: {
         name,
         id_level: currentLevel.id,
+        name_level: currentLevel.level,
         gender,
         date: newDate.toISOString(),
         age,
