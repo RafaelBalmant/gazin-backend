@@ -23,8 +23,6 @@ depois de criar o .env você deve rodar o comando
 
 npx prisma generate
 
-obs: o usuario é postgres e a senha é 123456
-
 Depois rodar as migrate para que as tabelas possam ser criadas:
 
 yarn prisma migrate dev
