@@ -17,7 +17,13 @@ Você deve ter o docker instalado e o docker compose também para rodar o banco 
 
 Para rodar o backend você deve instalar as deps usando npm install ou yarn e depois configurar a URL do DATABASE_URL no .env nesse padrão
 
+Para gerar o seu .env você deve rodar o comando 
+
+npx prisma generate
+
 postgres://[username]:[password]@localhost:[port]/postgres
+
+obs: o usuario é postgres e a senha é 123456
 
 Depois rodar as migrate para que as tabelas possam ser criadas:
 
