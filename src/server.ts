@@ -16,10 +16,12 @@ app.use(routes);
 app.use(
   (err: Error, request: Request, response: Response, next: NextFunction) => {
     if (err instanceof Error) {
-      console.log(err);
+      console.log(err.message);
       return response.status(handleErrorMessages[err.code]?.code || 500).json({
         message:
-          handleErrorMessages[err.code]?.message || "internal server error",
+          handleErrorMessages[err.code]?.message ||
+          err.message ||
+          "internal server error",
       });
     }
     return response

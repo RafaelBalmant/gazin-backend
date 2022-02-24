@@ -14,7 +14,7 @@ export class DeleteLevelHandle {
       },
     });
     if (userHaveThisLevel) {
-      throw new Error("Level have developer");
+      throw new Error("Nivel tem um desenvolvedor vinculado");
     }
     await prisma.levels.delete({
       where: {
