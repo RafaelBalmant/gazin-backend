@@ -18,8 +18,7 @@ app.use(
     if (err instanceof Error) {
       return response.status(handleErrorMessages[err.code]?.code || 500).json({
         message:
-          handleErrorMessages[err.code]?.message ||
-          err.message ||
+          handleErrorMessages[err.code || err.message]?.message ||
           "internal server error",
       });
     }
@@ -30,3 +29,5 @@ app.use(
 );
 
 app.listen(3333, () => console.log("Is Running"));
+
+export default app;
