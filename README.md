@@ -11,24 +11,25 @@ Queria agradecer também a oportunidade, nunca tinha participado de um desafio c
 
 No backend usei NODEJS com Typescript, também usei o ORM prisma!
 
-#### Como roda o backend
+#### Executando o backend
 
-Você deve ter o docker instalado e o docker compose também para rodar o banco de dados, depois é somente rodar o comando docker-compose up -d 
+Primeiramente devemos executar o banco de dados, para isso você deve ter o docker e docker compose instalado em sua maquina e executar o seguinte comando
+ - docker-compose up -d
 
-Para rodar o backend você deve instalar as deps usando npm install ou yarn e depois configurar a URL do DATABASE_URL no .env nesse padrão
+Depois disso devemos instalar as dependencias do backend executando o seguinte comando: 
+ - yarn
 
-postgres://postgres:123456@localhost:5432/postgres
+Depois devemos executar as configurações do prisma, primeiramente vamos criar o arquivo .env com essa const:
+ - DATABASE_URL="postgres://postgres:123456@localhost:5432/postgres"
 
-depois de criar o .env você deve rodar o comando 
+Depois devemos instalar o client do prisma:
+ - yarn add @prisma/client prisma -G
 
-npx prisma generate
+Depois devemos rodar o comando para o prisma identificar essa variavel: 
+ - npx prisma generate
 
-Depois rodar as migrate para que as tabelas possam ser criadas:
+E por fim rodar as migrates:
+ - npx prisma migrate dev
 
-yarn prisma migrate dev
-
-e depois é somente usar o yarn dev e o backend estará pronto para uso
-
-
-
-
+Depois disso devemos executar o backend e ele estará pronto para uso na porta 3333:
+- yarn dev  
